@@ -1,5 +1,6 @@
 public class Main {
 
+    // база
     public static void employeeList(Employee[] arrStorage) {
         for (int i = 0; i < arrStorage.length; i++) {
             System.out.println(arrStorage[i].toString());
@@ -50,6 +51,16 @@ public class Main {
         }
     }
 
+    //    повышенная сложность
+    public static void changeSalary(Employee[] arrStorage) {
+        int newSalary = 0;
+        for (int i = 0; i < arrStorage.length; i++) {
+            newSalary = arrStorage[i].getSalary() / 100 * 10 + arrStorage[i].getSalary();
+            arrStorage[i].setSalary(newSalary);
+            System.out.println(arrStorage[i].getSalary());
+        }
+    }
+
         public static void main(String[] args){
             Employee employee = new Employee();
             Employee[] arrStorage = new Employee[10];
@@ -70,5 +81,7 @@ public class Main {
             findMaxSalary(arrStorage);
             calculateTheAverageSalary(arrStorage);
             getFullNames(arrStorage);
+
+            changeSalary(arrStorage);
         }
     }
