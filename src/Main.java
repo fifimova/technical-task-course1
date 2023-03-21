@@ -16,7 +16,7 @@ public class Main {
     }
 
     public static void findMinSalary(Employee[] arrStorage) {
-        int minSum = arrStorage[0].getSalary();
+        double minSum = arrStorage[0].getSalary();
         for (int i = 0; i < arrStorage.length; i++) {
             if (arrStorage[i].getSalary() < minSum) {
                 minSum = arrStorage[i].getSalary();
@@ -26,7 +26,7 @@ public class Main {
     }
 
     public static void findMaxSalary(Employee[] arrStorage) {
-        int maxSum = -1;
+        double maxSum = -1;
         for (int i = 0; i < arrStorage.length; i++) {
             if (arrStorage[i].getSalary() > maxSum) {
                 maxSum = arrStorage[i].getSalary();
@@ -36,8 +36,8 @@ public class Main {
     }
 
     public static void calculateTheAverageSalary(Employee[] arrStorage) {
-        int averageSalary = 0;
-        int sum = 0;
+        double averageSalary = 0;
+        double sum = 0;
         for (int i = 0; i < arrStorage.length; i++) {
             sum += arrStorage[i].getSalary();
             averageSalary = sum / arrStorage.length;
@@ -52,13 +52,33 @@ public class Main {
     }
 
     //    повышенная сложность
-    public static void changeSalary(Employee[] arrStorage) {
-        int newSalary = 0;
+    public static void changeSalary(Employee[] arrStorage, int index) {
+        double newSalary = 0;
         for (int i = 0; i < arrStorage.length; i++) {
-            newSalary = arrStorage[i].getSalary() / 100 * 10 + arrStorage[i].getSalary();
+            newSalary = arrStorage[i].getSalary() / 100 * index + arrStorage[i].getSalary();
             arrStorage[i].setSalary(newSalary);
             System.out.println(arrStorage[i].getSalary());
         }
+    }
+
+    public static void findMinSalaryInDepartment(Employee[] arrStorage, int department) {
+        double minSum = arrStorage[0].getSalary();
+        for (int i = 0; i < arrStorage.length; i++) {
+            if (arrStorage[i].getSalary() < minSum && arrStorage[i].getDepartment() == department) {
+                minSum = arrStorage[i].getSalary();
+            }
+        }
+        System.out.println("Минимальная заработная плата в " + department + " отделе составляет: " + minSum);
+    }
+
+    public static void findMaxSalaryInDepartment(Employee[] arrStorage, int department) {
+        double maxSum = -1;
+        for (int i = 0; i < arrStorage.length; i++) {
+            if (arrStorage[i].getSalary() > maxSum && arrStorage[i].getDepartment() == department) {
+                maxSum = arrStorage[i].getSalary();
+            }
+        }
+        System.out.println("Максимальная заработная плата в " + department + " отделе составляет: " + maxSum);
     }
 
         public static void main(String[] args){
@@ -73,15 +93,17 @@ public class Main {
             arrStorage[6] = new Employee("Андреев Михаил Давидович", 3, 38780);
             arrStorage[7] = new Employee("Попова Майя Васильевна", 2, 38780);
             arrStorage[8] = new Employee("Никифорова Александра Романовна", 1, 38780);
-            arrStorage[9] = new Employee("Дмитриева Софья Артуровна", 5, 34380);
+            arrStorage[9] = new Employee("Дмитриева Софья Артуровна", 5, 20000);
 
-            employeeList(arrStorage);
-            calculateSumOfSalary(arrStorage);
-            findMinSalary(arrStorage);
-            findMaxSalary(arrStorage);
-            calculateTheAverageSalary(arrStorage);
-            getFullNames(arrStorage);
+//            employeeList(arrStorage);
+//            calculateSumOfSalary(arrStorage);
+//            findMinSalary(arrStorage);
+//            findMaxSalary(arrStorage);
+//            calculateTheAverageSalary(arrStorage);
+//            getFullNames(arrStorage);
 
-            changeSalary(arrStorage);
+//            changeSalary(arrStorage, 9);
+            findMinSalaryInDepartment(arrStorage, 4);
+            findMaxSalaryInDepartment(arrStorage, 1);
         }
     }
