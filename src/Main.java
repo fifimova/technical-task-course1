@@ -8,7 +8,7 @@ public class Main {
     }
 
     public static void calculateSumOfSalary(Employee[] arrStorage) {
-        int sum = 0;
+        double sum = 0;
         for (int i = 0; i < arrStorage.length; i++) {
             sum += arrStorage[i].getSalary();
         }
@@ -45,7 +45,7 @@ public class Main {
         System.out.println("Среднее значение зарплат составляет: " + averageSalary);
     }
 
-    public static void getFullNames(Employee[] arrStorage) {
+    public static void printFullNames(Employee[] arrStorage) {
         for (int i = 0; i < arrStorage.length; i++) {
             System.out.println(arrStorage[i].getFullName().toString());
         }
@@ -81,6 +81,27 @@ public class Main {
         System.out.println("Максимальная заработная плата в " + department + " отделе составляет: " + maxSum);
     }
 
+    public static void calculateSumOfSalaryInDepartment(Employee[] arrStorage, int department) {
+        double sum = 0;
+        for (int i = 0; i < arrStorage.length; i++) {
+            if (arrStorage[i].getDepartment() == department) {
+                sum += arrStorage[i].getSalary();
+            }
+        }
+        System.out.println("Сумма затрат на зарплату в " + department + " отделе составляет: " + sum);
+    }
+    public static void calculateTheAverageSalaryInDepartment(Employee[] arrStorage, int department) {
+        double averageSalary = 0;
+        double sum = 0;
+        for (int i = 0; i < arrStorage.length; i++) {
+            if (arrStorage[i].getDepartment() == department) {
+//                sum += arrStorage[i].getSalary();
+//                averageSalary = sum / arrStorage.length;
+            }
+        }
+        System.out.println("Среднее значение зарплат в " + department + " отделе составляет: " + averageSalary);
+    }
+
         public static void main(String[] args){
             Employee employee = new Employee();
             Employee[] arrStorage = new Employee[10];
@@ -100,10 +121,11 @@ public class Main {
 //            findMinSalary(arrStorage);
 //            findMaxSalary(arrStorage);
 //            calculateTheAverageSalary(arrStorage);
-//            getFullNames(arrStorage);
+//            printFullNames(arrStorage);
 
 //            changeSalary(arrStorage, 9);
             findMinSalaryInDepartment(arrStorage, 4);
             findMaxSalaryInDepartment(arrStorage, 1);
+            calculateSumOfSalaryInDepartment(arrStorage, 5);
         }
     }
