@@ -1,4 +1,7 @@
+import java.util.Arrays;
+
 public class Main {
+    Employee[] arrStorage = new Employee[10];
 
     // база
     public static void employeeList(Employee[] arrStorage) {
@@ -93,17 +96,20 @@ public class Main {
     public static void calculateTheAverageSalaryInDepartment(Employee[] arrStorage, int department) {
         double averageSalary = 0;
         double sum = 0;
+        int counter = 0;
         for (int i = 0; i < arrStorage.length; i++) {
             if (arrStorage[i].getDepartment() == department) {
-//                sum += arrStorage[i].getSalary();
-//                averageSalary = sum / arrStorage.length;
+                counter += 1;
+                sum += arrStorage[i].getSalary();
+                averageSalary = sum / counter;
             }
         }
+
         System.out.println("Среднее значение зарплат в " + department + " отделе составляет: " + averageSalary);
     }
 
         public static void main(String[] args){
-            Employee employee = new Employee();
+//            Employee employee = new Employee();
             Employee[] arrStorage = new Employee[10];
             arrStorage[0] = new Employee("Тимофеев Илья Васильевич", 1, 38740);
             arrStorage[1] = new Employee("Павлов Степан Кириллович", 2, 38740);
@@ -126,6 +132,7 @@ public class Main {
 //            changeSalary(arrStorage, 9);
             findMinSalaryInDepartment(arrStorage, 4);
             findMaxSalaryInDepartment(arrStorage, 1);
-            calculateSumOfSalaryInDepartment(arrStorage, 5);
+            calculateSumOfSalaryInDepartment(arrStorage, 1);
+            calculateTheAverageSalaryInDepartment(arrStorage, 1);
         }
     }
