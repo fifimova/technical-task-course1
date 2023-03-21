@@ -104,8 +104,25 @@ public class Main {
                 averageSalary = sum / counter;
             }
         }
-
         System.out.println("Среднее значение зарплат в " + department + " отделе составляет: " + averageSalary);
+    }
+    public static void changeSalaryInDepartment(Employee[] arrStorage, int department, int index) {
+        double newSalary = 0;
+        for (int i = 0; i < arrStorage.length; i++) {
+            if (arrStorage[i].getDepartment() == department) {
+                newSalary = arrStorage[i].getSalary() / 100 * index + arrStorage[i].getSalary();
+                arrStorage[i].setSalary(newSalary);
+                System.out.println(arrStorage[i].getSalary());
+            }
+        }
+    }
+
+    public static void printListOfDepartment(Employee[] arrStorage, int department) {
+        for (int i = 0; i < arrStorage.length; i++) {
+            if (arrStorage[i].getDepartment() == department) {
+                System.out.println(arrStorage[i].getFullName() + " " + arrStorage[i].getSalary());
+            }
+        }
     }
 
         public static void main(String[] args){
@@ -134,5 +151,8 @@ public class Main {
             findMaxSalaryInDepartment(arrStorage, 1);
             calculateSumOfSalaryInDepartment(arrStorage, 1);
             calculateTheAverageSalaryInDepartment(arrStorage, 1);
+//            changeSalaryInDepartment(arrStorage, 5, 10);
+            printListOfDepartment(arrStorage, 2);
+
         }
     }
