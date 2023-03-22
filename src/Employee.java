@@ -2,21 +2,23 @@ public class Employee {
     private String fullName;
     private int department;
     private double salary;
-    private static int id;
+    static int counter;
+    public static int id;
 
     public Employee(String fullName, int department, double salary) {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
+        this.id = this.counter;
     }
 
     public Employee() {
         id++;
     }
 
-    public int getId() {
-        return this.id;
-    }
+//    public int getId() {
+//        return this.id;
+//    }
 
     public String getFullName() {
         return fullName;

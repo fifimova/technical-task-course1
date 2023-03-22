@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Main {
-    Employee[] arrStorage = new Employee[10];
+    static Employee[] arrStorage = new Employee[10];
 
     // база
     public static void employeeList(Employee[] arrStorage) {
@@ -125,9 +125,28 @@ public class Main {
         }
     }
 
+    public static void findEmployeesWithLowerSalary(Employee[] arrStorage, double maxNum) {
+        for (int i = 0; i < arrStorage.length; i++) {
+            if (arrStorage[i].getSalary() < maxNum) {
+                maxNum = arrStorage[i].getSalary();
+                System.out.println("ID сотрудника: " + Employee.counter++  + ", " + arrStorage[i].getFullName()
+                        + ", заработная плата: " + arrStorage[i].getSalary() );
+
+            }
+        }
+    }
+    public static void findEmployeesWithHigherSalary(Employee[] arrStorage, double minNum) {
+        for (int i = 0; i < arrStorage.length; i++) {
+            if (arrStorage[i].getSalary() >= minNum) {
+                minNum = arrStorage[i].getSalary();
+                System.out.println("ID сотрудника: " + Employee.counter++  + ", " + arrStorage[i].getFullName()
+                        + ", заработная плата: " + arrStorage[i].getSalary() );
+
+            }
+        }
+    }
+
         public static void main(String[] args){
-//            Employee employee = new Employee();
-            Employee[] arrStorage = new Employee[10];
             arrStorage[0] = new Employee("Тимофеев Илья Васильевич", 1, 38740);
             arrStorage[1] = new Employee("Павлов Степан Кириллович", 2, 38740);
             arrStorage[2] = new Employee("Филиппова Василиса Макаровна", 3, 38380);
@@ -153,6 +172,8 @@ public class Main {
             calculateTheAverageSalaryInDepartment(arrStorage, 1);
 //            changeSalaryInDepartment(arrStorage, 5, 10);
             printListOfDepartment(arrStorage, 2);
+//            findEmployeesWithLowerSalary(arrStorage, 40000);
+            findEmployeesWithHigherSalary(arrStorage, 36000);
 
         }
     }
