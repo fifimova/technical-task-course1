@@ -1,28 +1,26 @@
-import java.util.Arrays;
-
 public class Main {
     static Employee[] arrStorage = new Employee[10];
 
     // база
     public static void employeeList(Employee[] arrStorage) {
-        for (int i = 0; i < arrStorage.length; i++) {
-            System.out.println(arrStorage[i].toString());
+        for (Employee employee : arrStorage) {
+            System.out.println(employee.toString());
         }
     }
 
     public static void calculateSumOfSalary(Employee[] arrStorage) {
         double sum = 0;
-        for (int i = 0; i < arrStorage.length; i++) {
-            sum += arrStorage[i].getSalary();
+        for (Employee employee : arrStorage) {
+            sum += employee.getSalary();
         }
         System.out.println("Сумма затрат на зарплату в месяц составляет: " + sum);
     }
 
     public static void findMinSalary(Employee[] arrStorage) {
         double minSum = arrStorage[0].getSalary();
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getSalary() < minSum) {
-                minSum = arrStorage[i].getSalary();
+        for (Employee employee : arrStorage) {
+            if (employee.getSalary() < minSum && employee != null) {
+                minSum = employee.getSalary();
             }
         }
         System.out.println("Минимальная заработная плата составляет: " + minSum);
@@ -30,9 +28,9 @@ public class Main {
 
     public static void findMaxSalary(Employee[] arrStorage) {
         double maxSum = -1;
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getSalary() > maxSum) {
-                maxSum = arrStorage[i].getSalary();
+        for (Employee employee : arrStorage) {
+            if (employee.getSalary() > maxSum && employee != null) {
+                maxSum = employee.getSalary();
             }
         }
         System.out.println("Максимальная заработная плата составляет: " + maxSum);
@@ -41,34 +39,34 @@ public class Main {
     public static void calculateTheAverageSalary(Employee[] arrStorage) {
         double averageSalary = 0;
         double sum = 0;
-        for (int i = 0; i < arrStorage.length; i++) {
-            sum += arrStorage[i].getSalary();
+        for (Employee employee : arrStorage) {
+            sum += employee.getSalary();
             averageSalary = sum / arrStorage.length;
         }
         System.out.println("Среднее значение зарплат составляет: " + averageSalary);
     }
 
     public static void printFullNames(Employee[] arrStorage) {
-        for (int i = 0; i < arrStorage.length; i++) {
-            System.out.println(arrStorage[i].getFullName().toString());
+        for (Employee employee : arrStorage) {
+            System.out.println(employee.getFullName().toString());
         }
     }
 
     //    повышенная сложность
     public static void changeSalary(Employee[] arrStorage, int index) {
         double newSalary = 0;
-        for (int i = 0; i < arrStorage.length; i++) {
-            newSalary = arrStorage[i].getSalary() / 100 * index + arrStorage[i].getSalary();
-            arrStorage[i].setSalary(newSalary);
-            System.out.println(arrStorage[i].getSalary());
+        for (Employee employee : arrStorage) {
+            newSalary = employee.getSalary() / 100 * index + employee.getSalary();
+            employee.setSalary(newSalary);
+            System.out.println(employee.getSalary());
         }
     }
 
     public static void findMinSalaryInDepartment(Employee[] arrStorage, int department) {
         double minSum = arrStorage[0].getSalary();
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getSalary() < minSum && arrStorage[i].getDepartment() == department) {
-                minSum = arrStorage[i].getSalary();
+        for (Employee employee : arrStorage) {
+            if (employee.getSalary() < minSum && employee.getDepartment() == department && employee != null) {
+                minSum = employee.getSalary();
             }
         }
         System.out.println("Минимальная заработная плата в " + department + " отделе составляет: " + minSum);
@@ -76,9 +74,9 @@ public class Main {
 
     public static void findMaxSalaryInDepartment(Employee[] arrStorage, int department) {
         double maxSum = -1;
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getSalary() > maxSum && arrStorage[i].getDepartment() == department) {
-                maxSum = arrStorage[i].getSalary();
+        for (Employee employee : arrStorage) {
+            if (employee.getSalary() > maxSum && employee.getDepartment() == department && employee != null) {
+                maxSum = employee.getSalary();
             }
         }
         System.out.println("Максимальная заработная плата в " + department + " отделе составляет: " + maxSum);
@@ -86,9 +84,9 @@ public class Main {
 
     public static void calculateSumOfSalaryInDepartment(Employee[] arrStorage, int department) {
         double sum = 0;
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getDepartment() == department) {
-                sum += arrStorage[i].getSalary();
+        for (Employee employee : arrStorage) {
+            if (employee.getDepartment() == department && employee != null) {
+                sum += employee.getSalary();
             }
         }
         System.out.println("Сумма затрат на зарплату в " + department + " отделе составляет: " + sum);
@@ -97,10 +95,10 @@ public class Main {
         double averageSalary = 0;
         double sum = 0;
         int counter = 0;
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getDepartment() == department) {
-                counter += 1;
-                sum += arrStorage[i].getSalary();
+        for (Employee employee : arrStorage) {
+            if (employee.getDepartment() == department && employee != null) {
+                counter++;
+                sum += employee.getSalary();
                 averageSalary = sum / counter;
             }
         }
@@ -108,39 +106,39 @@ public class Main {
     }
     public static void changeSalaryInDepartment(Employee[] arrStorage, int department, int index) {
         double newSalary = 0;
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getDepartment() == department) {
-                newSalary = arrStorage[i].getSalary() / 100 * index + arrStorage[i].getSalary();
-                arrStorage[i].setSalary(newSalary);
-                System.out.println(arrStorage[i].getSalary());
+        for (Employee employee : arrStorage) {
+            if (employee.getDepartment() == department && employee != null) {
+                newSalary = employee.getSalary() / 100 * index + employee.getSalary();
+                employee.setSalary(newSalary);
+                System.out.println(employee.getSalary());
             }
         }
     }
 
     public static void printListOfDepartment(Employee[] arrStorage, int department) {
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getDepartment() == department) {
-                System.out.println(arrStorage[i].getFullName() + " " + arrStorage[i].getSalary());
+        for (Employee employee : arrStorage) {
+            if (employee.getDepartment() == department && employee != null) {
+                System.out.println(employee.getFullName() + " " + employee.getSalary());
             }
         }
     }
 
     public static void findEmployeesWithLowerSalary(Employee[] arrStorage, double maxNum) {
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getSalary() < maxNum) {
-                maxNum = arrStorage[i].getSalary();
-                System.out.println("ID сотрудника: " + Employee.counter++  + ", " + arrStorage[i].getFullName()
-                        + ", заработная плата: " + arrStorage[i].getSalary() );
+        for (Employee employee : arrStorage) {
+            if (employee.getSalary() < maxNum && employee != null) {
+                maxNum = employee.getSalary();
+                System.out.println("ID сотрудника: " + employee.getId() + ", " + employee.getFullName()
+                        + ", заработная плата: " + employee.getSalary());
 
             }
         }
     }
     public static void findEmployeesWithHigherSalary(Employee[] arrStorage, double minNum) {
-        for (int i = 0; i < arrStorage.length; i++) {
-            if (arrStorage[i].getSalary() >= minNum) {
-                minNum = arrStorage[i].getSalary();
-                System.out.println("ID сотрудника: " + Employee.counter++  + ", " + arrStorage[i].getFullName()
-                        + ", заработная плата: " + arrStorage[i].getSalary() );
+        for (Employee employee : arrStorage) {
+            if (employee.getSalary() >= minNum && employee != null) {
+                minNum = employee.getSalary();
+                System.out.println("ID сотрудника: " + employee.getId() + ", " + employee.getFullName()
+                        + ", заработная плата: " + employee.getSalary());
 
             }
         }
@@ -164,16 +162,16 @@ public class Main {
 //            findMaxSalary(arrStorage);
 //            calculateTheAverageSalary(arrStorage);
 //            printFullNames(arrStorage);
-
+//
 //            changeSalary(arrStorage, 9);
-            findMinSalaryInDepartment(arrStorage, 4);
-            findMaxSalaryInDepartment(arrStorage, 1);
-            calculateSumOfSalaryInDepartment(arrStorage, 1);
-            calculateTheAverageSalaryInDepartment(arrStorage, 1);
+//            findMinSalaryInDepartment(arrStorage, 4);
+//            findMaxSalaryInDepartment(arrStorage, 1);
+//            calculateSumOfSalaryInDepartment(arrStorage, 1);
+//            calculateTheAverageSalaryInDepartment(arrStorage, 1);
 //            changeSalaryInDepartment(arrStorage, 5, 10);
-            printListOfDepartment(arrStorage, 2);
+//            printListOfDepartment(arrStorage, 2);
 //            findEmployeesWithLowerSalary(arrStorage, 40000);
-            findEmployeesWithHigherSalary(arrStorage, 36000);
+//            findEmployeesWithHigherSalary(arrStorage, 36000);
 
         }
     }

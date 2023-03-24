@@ -3,23 +3,19 @@ public class Employee {
     private int department;
     private double salary;
     static int counter;
-    public static int id;
+    private int id;
 
     public Employee(String fullName, int department, double salary) {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
         this.id = this.counter;
+        counter++;
     }
 
-    public Employee() {
-        id++;
+    public int getId() {
+        return id;
     }
-
-//    public int getId() {
-//        return this.id;
-//    }
-
     public String getFullName() {
         return fullName;
     }
