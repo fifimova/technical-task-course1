@@ -1,7 +1,7 @@
 public class Main {
     static Employee[] arrStorage = new Employee[10];
 
-    // база
+    //  база
     public static void employeeList(Employee[] arrStorage) {
         for (Employee employee : arrStorage) {
             System.out.println(employee.toString());
