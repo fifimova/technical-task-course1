@@ -34,5 +34,6 @@ public class Main {
 //            employeeBook.changeSalary("Павлов Степан Кириллович",40000);
 //            employeeBook.changeDepartment("Филиппова Василиса Макаровна", 5);
 //            employeeBook.printEmployeesByDepartment();
+
         }
     }

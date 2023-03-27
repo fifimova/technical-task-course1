@@ -5,7 +5,6 @@ public class EmployeeBook {
     public EmployeeBook() {
         this.arrStorage = new Employee[10];
     }
-
     public void addEmployee(String fullName, int department, double salary) {
         if (size > arrStorage.length) {
             System.out.println("В хранилище нет места");
