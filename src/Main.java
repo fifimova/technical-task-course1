@@ -12,28 +12,28 @@ public class Main {
             employeeBook.addEmployee("Никифорова Александра Романовна", 1, 38780);
             employeeBook.addEmployee("Дмитриева Софья Артуровна", 5, 20000);
 
-//            employeeBook.employeeList();
-//            employeeBook.calculateSumOfSalary();
-//            employeeBook.findMinSalary();
-//            employeeBook.findMaxSalary();
-//            employeeBook.calculateTheAverageSalary();
-//            employeeBook.printFullNames();
-//
-//            employeeBook.changeSalary(10);
-//            employeeBook.findMinSalaryInDepartment(5);
-//            employeeBook.findMaxSalaryInDepartment(1);
-//            employeeBook.calculateSumOfSalaryInDepartment(1);
-//            employeeBook.calculateTheAverageSalaryInDepartment(1);
-//            employeeBook.changeSalaryInDepartment(2, 10);
-//            employeeBook.printListOfDepartment(5);
-//            employeeBook.findEmployeesWithLowerSalary(40000);
-//            employeeBook.findEmployeesWithHigherSalary(36000);
-//
-//            employeeBook.addNewEmployee("Вася", 4, 50000);
-//            employeeBook.deleteEmployee("Тимофеев Илья Васильевич");
-//            employeeBook.changeSalary("Павлов Степан Кириллович",40000);
-//            employeeBook.changeDepartment("Филиппова Василиса Макаровна", 5);
-//            employeeBook.printEmployeesByDepartment();
+            employeeBook.employeeList();
+            employeeBook.calculateSumOfSalary();
+            employeeBook.findMinSalary();
+            employeeBook.findMaxSalary();
+            employeeBook.calculateTheAverageSalary();
+            employeeBook.printFullNames();
+
+            employeeBook.changeSalary(10);
+            employeeBook.findMinSalaryInDepartment(5);
+            employeeBook.findMaxSalaryInDepartment(1);
+            employeeBook.calculateSumOfSalaryInDepartment(1);
+            employeeBook.calculateTheAverageSalaryInDepartment(1);
+            employeeBook.changeSalaryInDepartment(2, 10);
+            employeeBook.printListOfDepartment(5);
+            employeeBook.findEmployeesWithLowerSalary(40000);
+            employeeBook.findEmployeesWithHigherSalary(36000);
+
+            employeeBook.addNewEmployee("Вася", 4, 50000);
+            employeeBook.deleteEmployee("Тимофеев Илья Васильевич");
+            employeeBook.changeSalary("Павлов Степан Кириллович",40000);
+            employeeBook.changeDepartment("Филиппова Василиса Макаровна", 5);
+            employeeBook.printEmployeesByDepartment();
 
         }
     }
